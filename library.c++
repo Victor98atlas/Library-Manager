@@ -102,23 +102,22 @@ for(int i = 0;i<Registration.size();i++){
         
 void removeBookAndStd(string std,string Reg,int Cnt,string book,int stdCnt){
     StdAndBook students[stdCnt];
+    int found = 0;
     for(int i = 0;i<stdCnt;i++){
-        if(std==students[i].StudentName){
-            students[i].StudentName = "";
-            students[i].RegistrationNo = "";
-            if(book==students[i].bookName){
-               students[i].bookCount = 0;
-
-            }
-            else{
-                cout << "book is not found in your name" << "\n";
-                break;
-            }
+        if(std==students[i].StudentName&& Reg==students[i].RegistrationNo&&book==students[i].bookName){
+            found = 1;
         }
-       else {
-        cout << "Student details not found"<<"\n";
-        break;
-       }
+        if(found!=1){
+            students[i].StudentName = " ";
+            students[i].RegistrationNo = " ";
+            students[i].bookName = " ";
+
+        }
+        else{
+            cout << "Student and book details not found."<<"\n"<<"Please Recheck it";
+            break;
+        }
+        
     }
 }
 int main(){
